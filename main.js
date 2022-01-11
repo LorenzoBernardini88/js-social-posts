@@ -80,7 +80,7 @@ function creaPost(author,created,content,media,likes,id){
 <div class="post__footer">
     <div class="likes js-likes">
         <div class="likes__cta">
-            <a class="like-button  js-like-button" href="#" data-postid="1">
+            <a class="like-button  js-like-button" href="#!" data-postid="1">
                 <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                 <span class="like-button__label">Mi Piace</span>
             </a>
@@ -103,10 +103,13 @@ let btnLike = document.querySelectorAll('.like-button');
 for(let i=0; i<posts.length; i++){
 
     btnLike[i].addEventListener('click',function(){
-        this.classList.add('like-button--liked');
-        x=i+1;
-        document.getElementById('like-counter-' + x).innerHTML = ++posts[i].likes;
-    })
+
+            this.classList.add('like-button--liked');
+            x=i+1;
+            document.getElementById('like-counter-' + x).innerHTML = ++posts[i].likes;
+        
+        })
+
 } //ciclo for che aggiunge cambio colore del button al click.
 
 
