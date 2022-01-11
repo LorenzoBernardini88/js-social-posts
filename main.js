@@ -98,6 +98,15 @@ for(let i=0; i<posts.length; i++){
     creaPost(posts[i].author,posts[i].created,posts[i].content,posts[i].media,posts[i].likes,posts[i].id);
 }//inietto i vari posts nel social con ciclo for.
 
+let btnLike = document.querySelectorAll('.like-button');
+
+for(let i=0; i<posts.length; i++){
+
+    btnLike[i].addEventListener('click',function(){
+        this.classList.add('like-button--liked');
+
+    })
+}
 
 
 
