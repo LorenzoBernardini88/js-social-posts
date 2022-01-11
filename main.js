@@ -106,7 +106,7 @@ for(let i=0; i<posts.length; i++){
         this.classList.add('like-button--liked');
 
     })
-}
+} //ciclo for che aggiunge cambio colore del button al click.
 
 
 
