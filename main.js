@@ -80,13 +80,13 @@ function creaPost(author,created,content,media,likes,id){
 <div class="post__footer">
     <div class="likes js-likes">
         <div class="likes__cta">
-            <a class="like-button  js-like-button" href="#" data-postid="${id}">
+            <a class="like-button  js-like-button" href="#" data-postid="1">
                 <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                 <span class="like-button__label">Mi Piace</span>
             </a>
         </div>
         <div class="likes__counter">
-            Piace a <b id="like-counter-1" class="js-likes-counter">${likes}</b> persone
+            Piace a <b id="like-counter-${id}" class="js-likes-counter">${likes}</b> persone
         </div>
     </div> 
 </div>            
@@ -98,17 +98,9 @@ for(let i=0; i<posts.length; i++){
     creaPost(posts[i].author,posts[i].created,posts[i].content,posts[i].media,posts[i].likes,posts[i].id);
 }//inietto i vari posts nel social con ciclo for.
 
-// let btnlike = document.querySelectorAll('.like-button');
 
 
 
-
-
-// for(let i=0; i<btnlike.length; i++){
-
-
-
-// }
 
 
 
