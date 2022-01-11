@@ -105,7 +105,7 @@ for(let i=0; i<posts.length; i++){
     btnLike[i].addEventListener('click',function(){
         this.classList.add('like-button--liked');
         x=i+1;
-        document.getElementById('like-counter-' + x).innerHTML = posts[i].likes++;
+        document.getElementById('like-counter-' + x).innerHTML = ++posts[i].likes;
     })
 } //ciclo for che aggiunge cambio colore del button al click.
 
