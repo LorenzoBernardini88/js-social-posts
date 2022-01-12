@@ -58,14 +58,17 @@ const posts = [
 
 let socialPost = document.querySelector('.posts-list');
 
-
 function creaPost(author,created,content,media,likes,id){
+
+    const immagineProfilo = getImgProfilo(author);
+
     socialPost.innerHTML +=`
 <div class="post">
 <div class="post__header">
     <div class="post-meta">                    
         <div class="post-meta__icon">
-            <img class="profile-pic" src=${author.image} alt=${author.name}>                    
+            ${immagineProfilo}
+        
         </div>
         <div class="post-meta__data">
             <div class="post-meta__author">${author.name}</div>
@@ -94,23 +97,41 @@ function creaPost(author,created,content,media,likes,id){
 `
 }//funzione che crea il post social.
 
+function getImgProfilo (author){
+    if(author.image){
+        return ` <img class="profile-pic" src=${author.image} alt=${author.name}>`
+    }else{
+        return `<div class="profile-pic-default"><span>??</span></div>`
+    }
+}//funzione che gestisce IMG PROFILO.
+
 for(let i=0; i<posts.length; i++){
     creaPost(posts[i].author,posts[i].created,posts[i].content,posts[i].media,posts[i].likes,posts[i].id);
 }//inietto i vari posts nel social con ciclo for.
 
-let btnLike = document.querySelectorAll('.like-button');
+let btnLike = document.querySelectorAll('.like-button');//recupero i buttoLike dei post.
 
 for(let i=0; i<posts.length; i++){
 
     btnLike[i].addEventListener('click',function(){
 
+        if(!this.classList.contains('like-button--liked')){
+            
+            //se NON è like
             this.classList.add('like-button--liked');
             x=i+1;
             document.getElementById('like-counter-' + x).innerHTML = ++posts[i].likes;
-        
-        })
 
-} //ciclo for che aggiunge cambio colore del button al click.
+        }else{
+
+            //se è GIA' like
+            this.classList.remove('like-button--liked');
+            x=i+1;
+            document.getElementById('like-counter-' + x).innerHTML = --posts[i].likes;
+        
+        }
+    })
+} //ciclo for che gestisce evento click sul button like.
 
 
 
